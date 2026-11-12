@@ -1,0 +1,47 @@
+guard,state,effect,checked_at,what_it_enforces
+nothing-on-operator-screen,observation,block,before tool call,Nothing opens on the operator's screen or in Docker
+no-local-browser,observation,block,before tool call,"No headless Chrome or Playwright on the operator's machine, except as a documented fallback or for video rendering"
+hidden-bench-key,enforced,block,before tool call,The hidden test set's key is read only by its runner
+db-migrations,enforced,block,before tool call,No remote database migration applied without listing applied migrations in the same turn
+asset-library,enforced,block,before tool call,No film or 3D render without consulting the shared asset library first
+prospecting-doctrine,enforced,block,before tool call,No prospecting message queued without the prospecting doctrine read in the conversation
+read-only-subagents,enforced,block,before tool call,"Read-only sub-agents (collector, verifier) write nothing"
+client-summary-first,observation,block,before tool call,Resuming a client file: the client summary command runs before any broad reading
+send-hour,enforced,warn,before tool call,Warn about a message sent at an inappropriate hour
+thread-reread-warning,observation,warn,before tool call,Warn about a message whose thread has not been reread
+open-attachments,observation,warn,before tool call,Warn about an SMS reply sent without opening the attachments received
+search-before-question,observation,block,before tool call,A factual question to the operator first goes through the unified search
+unrequested-artifact,observation,block,before tool call,No artifact the operator did not ask for
+questions-file-cross-checked,enforced,block,before tool call,A list of questions for a third party written in a file states what was cross-checked
+reread-before-approval,enforced,block,end of turn,A message shown for approval comes after the thread checker has reread the thread
+absence-states-where,observation,block,end of turn,An absence is not concluded: the answer says where it searched and where the thing should be
+draft-client-summary,enforced,block,before tool call,An email draft is written after the client summary was read
+search-before-final-question,observation,block,end of turn,An answer does not end with a factual question without the unified search
+no-words-put-in-operator-mouth,safety net,block,end of turn,Refuse an answer that attributes to the operator words the operator never wrote
+draft-already-answered,enforced,block,before tool call,An email draft is written after checking whether the client was already answered
+try-before-handing-over,observation,block,end of turn,A step in a third-party app is handed to the operator only after trying every path the agent has
+check-after-deploy,enforced,block,end of turn,A deployment is checked after it ships
+closed-session,observation,block,before tool call,"After its work session is closed, a conversation does not keep working without opening a new one"
+reply-queue,enforced,block,end of turn,A list of what remains to be answered is re-read from the reply queue in the same turn
+side-by-side-review,observation,block,before tool call,No visual piece shown on the review screen without its references and the published pieces opened side by side
+questions-cross-checked,enforced,block,end of turn,An answer does not end with a list of questions for a third party without what was cross-checked
+contrast-check,observation,block,end of turn,A page shown to the operator has passed the contrast check
+width-check,observation,block,end of turn,A page shown to the operator has passed the width and empty-space check
+open-work-session,observation,block,end of turn,A conversation that does work opens its work session
+file-to-document-store,observation,block,end of turn,A file written into a client folder is filed in the document store
+session-after-summary,observation,block,end of turn,"After a context summary, the work session is re-declared before working"
+count-before-everywhere,observation,block,end of turn,"""Everywhere"", ""all occurrences"", ""none left"" is counted before it is said"
+record-correction,observation,block,end of turn,An operator correction is recorded in the turn it is made
+channel-proof,observation,block,before tool call,A task about a blocked channel closes only with a send proven through that channel
+project-tasks,enforced,block,end of turn,An opened project has its tasks in the planner
+not-sent-direct-source,observation,block,end of turn,"""Not sent"", ""not received"", ""blocked"" is said after reading the direct source, not a lagging summary"
+named-tasks-updated,enforced,block,end of turn,A closed session has updated every task it names
+crm-after-send,retired,block,end of turn,Write to the CRM after every send
+fact-in-place,retired,block,end of turn,A numeric fact in the activity log is also written where it belongs
+read-state-first,retired,block,end of turn,Read the log and the task before starting a task
+deploy-foreign-tree,retired,block,before tool call,No deployment of a working tree modified by another session
+new-background-agent,enforced,block,before tool call,No new background agent installed before the operator's decision is reread
+absence-after-search,observation,block,end of turn,"An answer that opens on an absence (not found, none, does not exist) has run the unified search on its subject"
+no-jargon,observation,block,end of turn,"A chat answer is not written in tool jargon (ids, file names, code terms)"
+no-variants-after-rejection,observation,block,end of turn,"After a visual block is rejected, no variants of the same template: numbered choices or a framing question"
+kill-by-pattern,enforced,block,before tool call,"No process killed by pattern: pkill and killall refused, kill on a verified PID only"

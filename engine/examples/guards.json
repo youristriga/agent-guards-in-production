@@ -1,0 +1,46 @@
+[
+  {
+    "name": "thread",
+    "state": "enforced",
+    "effect": "block",
+    "moment": "before_tool",
+    "message": "the thread was not reread in this conversation for: {missing}. Run thread-check <address> first, read its verdict, then write from where the thread stands.",
+    "why": "Replies sent without rereading the thread re-introduced the sender to people who had already answered, and repeated questions already settled.",
+    "trigger": {"tool": "^Bash$", "command": "\\bsend-message\\b"},
+    "unless": [{"tool": "^Bash$", "command": "--help|--preview"}],
+    "captures": [{"regex": "--to[= ]+['\"]?(?P<v>[^'\"\\s]+)", "normalize": "lower"}],
+    "require": {
+      "any_of": [{"tool": "^Bash$", "command": "\\bthread-check\\b", "capture": "thread-check\\s+['\"]?(?P<v>[^'\"\\s]+)", "normalize": "lower"}],
+      "when": "before", "scope": "conversation", "link": "each_capture"
+    }
+  },
+  {
+    "name": "kill-by-pattern",
+    "state": "enforced",
+    "effect": "block",
+    "moment": "before_tool",
+    "message": "no process is killed by pattern: find the PID, check what it is, then kill that PID.",
+    "why": "pkill on a broad pattern killed the operator's own sessions and a long render.",
+    "trigger": {"tool": "^Bash$", "command": "\\b(pkill|killall)\\b"}
+  },
+  {
+    "name": "check-after-deploy",
+    "state": "enforced",
+    "effect": "block",
+    "moment": "end_of_turn",
+    "message": "a deployment shipped in this turn and nothing checked that the new code answers. Fetch the live URL and read what it returns.",
+    "why": "Deployments reported as done while the old code was still served.",
+    "trigger": {"tool": "^Bash$", "command": "\\bwrangler\\s+deploy\\b"},
+    "require": {"any_of": [{"tool": "^Bash$", "command": "\\bcurl\\b"}, {"tool": "^WebFetch$"}], "when": "after", "scope": "turn"}
+  },
+  {
+    "name": "search-before-absence",
+    "state": "observation",
+    "effect": "block",
+    "moment": "end_of_turn",
+    "message": "the answer concludes that something does not exist without having run the unified search on it.",
+    "why": "\"I don't have that information\" was said about facts sitting in an email or an earlier task.",
+    "trigger": {"final_text": "\\b(not found|does not exist|doesn't exist|no trace|I don't have)\\b"},
+    "require": {"any_of": [{"tool": "^Bash$", "command": "\\bsearch-all\\b"}], "when": "anywhere", "scope": "turn"}
+  }
+]

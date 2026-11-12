@@ -1,0 +1,45 @@
+guard,verdict,count,sessions
+engine,engine loaded,2194,1877
+file-to-document-store,would have blocked (observation),1202,150
+client-summary-first,would have blocked (observation),674,435
+send-hour,warned,371,117
+closed-session,would have blocked (observation),268,159
+send-hour,would have warned (observation),226,43
+named-tasks-updated,would have blocked (observation),215,100
+open-work-session,would have blocked (observation),199,93
+thread-reread-warning,would have warned (observation),198,77
+kill-by-pattern,blocked,133,109
+open-attachments,would have warned (observation),108,23
+check-after-deploy,blocked,104,58
+prospecting-doctrine,blocked,83,83
+session-after-summary,would have blocked (observation),63,36
+engine,engine failure,60,35
+check-after-deploy,would have blocked (observation),41,22
+read-only-subagents,would have blocked (observation),30,16
+read-only-subagents,blocked,27,15
+db-migrations,blocked,27,27
+reply-queue,blocked,26,24
+hidden-bench-key,blocked,25,19
+named-tasks-updated,blocked,24,20
+record-correction,would have blocked (observation),22,17
+search-before-final-question,would have blocked (observation),19,17
+reread-before-approval,blocked,17,17
+absence-after-search,would have blocked (observation),17,16
+draft-already-answered,blocked,14,9
+db-migrations,would have blocked (observation),14,14
+no-variants-after-rejection,would have blocked (observation),12,9
+not-sent-direct-source,would have blocked (observation),10,10
+draft-client-summary,blocked,9,8
+absence-states-where,would have blocked (observation),6,6
+project-tasks,would have blocked (observation),6,4
+search-before-question,would have blocked (observation),4,4
+hidden-bench-key,would have blocked (observation),3,3
+try-before-handing-over,would have blocked (observation),2,2
+questions-file-cross-checked,blocked,2,2
+contrast-check,would have blocked (observation),2,1
+width-check,would have blocked (observation),2,1
+asset-library,blocked,2,2
+asset-library,would have blocked (observation),2,2
+new-background-agent,blocked,1,1
+no-local-browser,would have blocked (observation),1,1
+named-tasks-updated,lifted by operator,1,1

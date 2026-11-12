@@ -1,0 +1,22 @@
+domain,reported_by_operator,self_reported_by_agent,logged_by_guard,total
+"agent harness (tools, hooks, sub-agents)",156,116,188,460
+"writing (style, form, wording)",303,16,0,319
+unclassified,244,56,0,300
+client websites,129,4,23,156
+SMS,106,27,8,141
+email,51,34,7,92
+prospecting,35,44,0,79
+CRM,46,12,15,73
+calendar and work sessions,14,3,47,64
+client spaces and business entities,47,5,0,52
+banking,35,8,0,43
+remote browser,15,14,0,29
+long-term memory,20,5,2,27
+task planner,9,15,0,24
+WhatsApp,14,3,0,17
+activity log,4,1,11,16
+meeting recordings,8,8,0,16
+contact directory,6,6,0,12
+payments,3,0,0,3
+phone calls,3,0,0,3
+till,2,0,0,2
